@@ -1,0 +1,11 @@
+.*
+docs
+mkdocs.yml
+docker-compose.yml
+test*
+*.md
+mongo-opsmgr-helm/*
+mongo-opsmgr-helm/*/*
+skaffold.yaml
+bin/*
+!bin/mongodb-mms

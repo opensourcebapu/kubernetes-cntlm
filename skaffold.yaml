@@ -1,0 +1,19 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+deploy:
+  helm:
+    releases:
+    - name: proxy
+      namespace: cntlm
+      chartPath: cntlm-helm
+      #wait: true
+      valuesFiles:
+      - cntlm-helm/values.yaml
+      #recreatePods will pass --recreate-pods to helm upgrade
+      #recreatePods: true
+      #overrides builds an override values.yaml file to run with the helm deploy
+      #overrides:
+      # some:
+      #   key: someValue
+      #setValues get appended to the helm deploy with --set.
+      #setValues:
