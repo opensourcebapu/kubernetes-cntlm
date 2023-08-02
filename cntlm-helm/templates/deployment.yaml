@@ -45,7 +45,7 @@ spec:
              value: {{ .Values.cntlm.domain }}
            {{ end }}
            {{ if .Values.cntlm.username }}
-           - name: CNTLM_USER
+           - name: CNTLM_USERNAME
              value: {{ .Values.cntlm.username }}
            {{ end }}
            {{ if .Values.cntlm.passlm }}
@@ -61,14 +61,14 @@ spec:
                secretKeyRef:
                  name: {{ include "cntlm.fullname" . }}-secret
                  key: cntlm_passnt
-           {{ end }}                 
+           {{ end }}
            {{ if .Values.cntlm.passntlmv2 }}
-           - name: CNTLM_PASSNTLMv2
+           - name: CNTLM_PASSNTLMV2
              valueFrom:
                secretKeyRef:
                  name: {{ include "cntlm.fullname" . }}-secret
-                 key: cntlm_passntlmv2 
-           {{ end }}             
+                 key: cntlm_passntlmv2
+           {{ end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
